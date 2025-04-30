@@ -23,11 +23,11 @@ This is Telus Digital's recommended template to use when starting a new React Na
 ## Getting started
 
 > [!WARNING]
-> Make sure you are using Node < 23
+> Make sure you are using Node >18 <23
 
 - find & replace `my-app` with your app name
 - find & replace `com.jpmigueldriver.myapp` with your app id
-- run `npm install` to install the dependencies
+- run `./scripts/init.sh` to install the dependencies
 - run `npm run ios` or `npm run android` to start the app
 - run `npm start:storybook` to start the storybook UI
 
@@ -40,14 +40,14 @@ This is Telus Digital's recommended template to use when starting a new React Na
 
 ```sh
 # if you want to use NPM
-rm -rf node_modules yarn.lock
-npm install
+rm -rf yarn.lock
+./scripts/init.sh
 ```
 
 ```sh
 # if you want to use Yarn
-rm -rf node_modules package-lock.json
-yarn install
+rm -rf package-lock.json
+./scripts/init.sh
 ```
 
 ## (Optional) Steps for further customization
