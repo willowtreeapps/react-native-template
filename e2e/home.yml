@@ -1,0 +1,6 @@
+appId: com.jpmigueldriver.myapp # This is an example app id. Replace it with your app id.
+---
+- launchApp:
+    arguments:
+      isE2E: true # Used in index.ts to turn off LogBox
+- assertVisible: 'Hello World!'
