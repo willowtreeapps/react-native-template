@@ -1,0 +1,36 @@
+name: PR Checks
+
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🏗 Setup repo
+        uses: actions/checkout@v4
+
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v4
+        with:
+          cache: npm
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🔬 Lint
+        run: npm run lint
+
+      - name: 🧼 Format
+        run: npm run format
+
+      - name: 🧪 Test
+        run: npm run test
+
+      - name: 📝 Typescript
+        run: npx tsc --noEmit
+
+      - name: 🧱 Compile Expo Plugins
+        run: ./scripts/compile-plugins.sh
+
+      - name: 🍎 iOS Build
+        run: npx expo export -p ios

@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "My App",
+    "slug": "my-app",
+    "owner": "willowtreeapps",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.jpmigueldriver.myapp",
+      "config": {
+        "usesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.jpmigueldriver.myapp"
+    },
+    "plugins": [
+      "expo-android-proxyman",
+      "expo-font",
+      "react-native-legal"
+    ]
+  }
+}
