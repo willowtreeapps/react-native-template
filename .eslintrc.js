@@ -4,16 +4,12 @@ module.exports = {
   rules: {
     // don't allow nested ternaries
     'no-nested-ternary': 'error',
-    // no longer needed with React 17
-    'react/react-in-jsx-scope': 'off',
     // don't allow unused styles
     'react-native/no-unused-styles': 'error',
     // make sure all maps have a key
     'react/jsx-key': 'error',
     // guard against leaked values in renders
     'react/jsx-no-leaked-render': 'error',
-    // defers quote style to Prettier
-    quotes: 'off',
   },
   overrides: [
     {

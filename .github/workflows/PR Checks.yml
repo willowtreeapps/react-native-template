@@ -20,7 +20,7 @@ jobs:
       - name: 🔬 Lint
         run: npm run lint
 
-      - name: 📝 Format
+      - name: 🧼 Format
         run: npm run format
 
       - name: 🧪 Test
@@ -28,6 +28,9 @@ jobs:
 
       - name: 📝 Typescript
         run: npx tsc --noEmit
+
+      - name: 🧱 Compile Expo Plugins
+        run: ./scripts/compile-plugins.sh
 
       - name: 🍎 iOS Build
         run: npx expo export -p ios

@@ -10,6 +10,7 @@ web-build/
 expo-env.d.ts
 
 # Native
+.kotlin/
 *.orig.*
 *.jks
 *.p8
@@ -44,3 +45,4 @@ yarn-error.*
 
 # modules
 /modules/*/android/build
+/modules/*/plugin/build

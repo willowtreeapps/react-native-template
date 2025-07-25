@@ -18,18 +18,34 @@ This is Telus Digital's recommended template to use when starting a new React Na
 - includes GitHub Action for PR Checks
 
 > [!NOTE]
-> This template is set up to use [Continuous Native Generation](https://docs.expo.dev/workflow/continuous-native-generation/)
+> This template is set up to use [Continuous Native Generation](https://docs.expo.dev/workflow/continuous-native-generation/).
+>
+> Please note that it is not compatible with Expo Go.
 
-## Getting started
+## How to create a project using this template
+
+Click here to [create a new GitHub Repository](https://github.com/new?template_name=react-native-template&template_owner=willowtreeapps) using this template
+
+## Once you have created a project
 
 > [!WARNING]
-> Make sure you are using Node < 23
+> Make sure you are using Node >18 <23
 
+- delete either `package-lock.json` or `yarn.lock` (see [Package Managers](#package-managers) below)
 - find & replace `my-app` with your app name
 - find & replace `com.jpmigueldriver.myapp` with your app id
-- run `npm install` to install the dependencies
+- run `./scripts/init.sh` to install the dependencies
 - run `npm run ios` or `npm run android` to start the app
 - run `npm start:storybook` to start the storybook UI
+
+### License
+
+Please note that this template is open-source and MIT licensed.
+If your project is not open-source, you should:
+
+1. delete the `LICENSE` file
+2. remove the `"license"` field from `package.json`
+3. add `"private": true` to `package.json`
 
 ### Package Managers
 
@@ -40,15 +56,27 @@ This is Telus Digital's recommended template to use when starting a new React Na
 
 ```sh
 # if you want to use NPM
-rm -rf node_modules yarn.lock
-npm install
+rm -rf yarn.lock
+./scripts/init.sh
 ```
 
 ```sh
 # if you want to use Yarn
-rm -rf node_modules package-lock.json
-yarn install
+rm -rf package-lock.json
+./scripts/init.sh
 ```
+
+### Ruby
+
+This project is intended for use with the version of Ruby that ships with macOS. You should not need to install Ruby separately (e.g. via Homebrew).
+
+However if you would like to use a different version of Ruby, we recommend using [rvm](https://rvm.io/) to manage your Ruby versions.
+
+You may need to update the `.ruby-version` and `Gemfile.lock` files to match the version of Ruby you are using.
+
+### CocoaPods
+
+This project uses Bundler to manage Ruby Gems such as CocoaPods. You should not need to install CocoaPods separately (e.g. via Homebrew).
 
 ## (Optional) Steps for further customization
 
@@ -92,17 +120,17 @@ yarn install
 
   - to collect Code Coverage add the following to your `jest.config.js`
 
-  ```js
-  "collectCoverage": true,
-  "collectCoverageFrom": [
-    "**/*.{ts,tsx,js,jsx}",
-    "!**/coverage/**",
-    "!**/node_modules/**",
-    "!**/babel.config.js",
-    "!**/expo-env.d.ts",
-    "!**/.expo/**"
-  ]
-  ```
+    ```js
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx,js,jsx}",
+      "!**/coverage/**",
+      "!**/node_modules/**",
+      "!**/babel.config.js",
+      "!**/expo-env.d.ts",
+      "!**/.expo/**"
+    ]
+    ```
 
 - Add more GitHub workflows
 
@@ -124,7 +152,7 @@ You have several options for adding navigation to your app:
 
 - You should add the following to your `app.config.js`
   - see [Apple Team ID docs](https://docs.expo.dev/versions/latest/config/app/#appleteamid)
-  - see [here](https://willowtree.atlassian.net/wiki/spaces/PD/pages/3056861513/WillowTree-Owned+Developer+Accounts) for a list of our internal Apple Teams you may wish to use
+  - see here for a [list of WillowTree's internal Apple Teams](https://willowtree.atlassian.net/wiki/spaces/PD/pages/3056861513/WillowTree-Owned+Developer+Accounts) you may wish to use
 
 ```js
 ios: {

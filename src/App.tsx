@@ -6,7 +6,7 @@ import {HomeScreen} from './screens/HomeScreen';
 let AppEntryPoint = HomeScreen;
 
 if (Constants.expoConfig?.extra?.withStorybook === 'true') {
-  AppEntryPoint = require('../.storybook').default;
+  AppEntryPoint = require('../.rnstorybook').default;
 }
 
 const queryClient = new QueryClient();

@@ -1,10 +1,9 @@
-import {ActivityIndicator, Text} from 'react-native';
+import {ActivityIndicator} from 'react-native';
 import {TEST_IDS} from '../../constants/testIds';
-import {useTheme} from '../../hooks/useTheme';
 import {useTodoQuery} from '../../hooks/useTodoQuery';
+import {ThemeText} from '../ThemeText';
 
 export const TodoCount = () => {
-  const theme = useTheme();
   const todoQuery = useTodoQuery();
 
   if (todoQuery.isLoading) {
@@ -12,10 +11,9 @@ export const TodoCount = () => {
   }
 
   return (
-    <Text
-      testID={TEST_IDS.TODO_COUNT}
-      style={{
-        color: theme.textColor,
-      }}>{`Todo Count: ${todoQuery.data?.length}`}</Text>
+    <ThemeText
+      testID={
+        TEST_IDS.TODO_COUNT
+      }>{`Todo Count: ${todoQuery.data?.length}`}</ThemeText>
   );
 };
