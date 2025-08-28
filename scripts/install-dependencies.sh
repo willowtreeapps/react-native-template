@@ -22,3 +22,11 @@ fi
 # Install dependencies
 echo "Running '$PACKAGE_MANAGER install' in ${PWD}"
 $PACKAGE_MANAGER install
+
+# Update PR Checks GitHub Action if required
+if [ "$PACKAGE_MANAGER" = "yarn" ]; then
+    sed -i '' 's/cache: npm/cache: yarn/g' .github/workflows/PR\ Checks.yml
+    sed -i '' 's/npm install/yarn install/g' .github/workflows/PR\ Checks.yml
+    sed -i '' 's/npm run/yarn/g' .github/workflows/PR\ Checks.yml
+    sed -i '' 's/npx/yarn/g' .github/workflows/PR\ Checks.yml
+fi

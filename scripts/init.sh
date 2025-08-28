@@ -2,7 +2,7 @@
 set -e  # Exit on error
 
 # Clean project
-rm -rf .expo android ios node_modules vendor
+rm -rf .expo dist android ios node_modules vendor
 
 # Install dependencies
 ./scripts/install-dependencies.sh
