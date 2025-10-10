@@ -2,6 +2,7 @@
   "expo": {
     "name": "My App",
     "slug": "my-app",
+    "owner": "willowtreeapps",
     "version": "1.0.0",
     "platforms": ["ios", "android"],
     "orientation": "portrait",
@@ -11,6 +12,7 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
+      "appleTeamId": "7UMFPW78PV",
       "bundleIdentifier": "com.jpmigueldriver.myapp",
       "config": {
         "usesNonExemptEncryption": false
