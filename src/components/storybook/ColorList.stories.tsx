@@ -1,6 +1,6 @@
-import type {Meta, StoryObj} from '@storybook/react';
-import {StyleSheet, View} from 'react-native';
-import {ColorList} from './ColorList';
+import type { Meta, StoryObj } from '@storybook/react';
+import { StyleSheet, View } from 'react-native';
+import { ColorList } from './ColorList';
 
 const meta = {
   title: 'Theme',

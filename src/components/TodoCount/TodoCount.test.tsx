@@ -1,10 +1,10 @@
-import {render, screen} from '@testing-library/react-native';
-import {useColorScheme} from 'react-native';
-import {TodoCount} from './TodoCount';
-import {TEST_IDS} from '../../constants/testIds';
-import {useTodoQuery} from '../../hooks/useTodoQuery';
-import {jestWrapper} from '../../utils/jestWrapper';
-import {Colors} from '../../theme/types';
+import { render, screen } from '@testing-library/react-native';
+import { StyleSheet, useColorScheme } from 'react-native';
+import { TEST_IDS } from '../../constants/testIds';
+import { useTodoQuery } from '../../hooks/useTodoQuery';
+import { Colors } from '../../theme/types';
+import { jestWrapper } from '../../utils/jestWrapper';
+import { TodoCount } from './TodoCount';
 
 jest.mock('../../hooks/useTodoQuery');
 
@@ -49,7 +49,8 @@ describe('<TodoCount />', () => {
       render(jestWrapper(TodoCount));
 
       const ele = screen.getByTestId(TEST_IDS.TODO_COUNT);
-      expect(ele.props.style.color).toBe(Colors.black);
+      const style = StyleSheet.flatten(ele.props.style);
+      expect(style.color).toBe(Colors.black);
     });
 
     test('dark mode', () => {
@@ -58,7 +59,8 @@ describe('<TodoCount />', () => {
       render(jestWrapper(TodoCount));
 
       const ele = screen.getByTestId(TEST_IDS.TODO_COUNT);
-      expect(ele.props.style.color).toBe(Colors.white);
+      const style = StyleSheet.flatten(ele.props.style);
+      expect(style.color).toBe(Colors.white);
     });
   });
 });

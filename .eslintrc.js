@@ -1,9 +1,27 @@
 module.exports = {
   root: true,
-  extends: ['@react-native', 'plugin:@tanstack/query/recommended'],
+  extends: [
+    '@react-native',
+    'plugin:jest/recommended',
+    'plugin:@tanstack/query/recommended',
+  ],
   rules: {
     // don't allow nested ternaries
     'no-nested-ternary': 'error',
+    // don't allow default React import
+    'no-restricted-imports': [
+      'error',
+      {
+        paths: [
+          {
+            name: 'react',
+            importNames: ['default'],
+            message:
+              "As of React 17, you don't need to import React to use JSX. Please remove the default import.",
+          },
+        ],
+      },
+    ],
     // don't allow unused styles
     'react-native/no-unused-styles': 'error',
     // make sure all maps have a key
@@ -18,4 +36,7 @@ module.exports = {
       extends: ['plugin:testing-library/react'],
     },
   ],
+  parserOptions: {
+    warnOnUnsupportedTypeScriptVersion: false,
+  },
 };

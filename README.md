@@ -1,6 +1,10 @@
 # Hello World React Native app
 
-This is Telus Digital's recommended template to use when starting a new React Native app.
+This is an Opinionated React Native template with sensible defaults.
+
+The template was originally developed at [WillowTree](https://github.com/willowtreeapps), and later open sourced.
+
+It is designed to enforce a consistent developer experience for React Native teams of any size.
 
 > [!TIP]
 > Before cloning this repo, you should run through the React Native Environment Setup docs for both [iOS](https://reactnative.dev/docs/set-up-your-environment?os=macos&platform=ios) and [Android](https://reactnative.dev/docs/set-up-your-environment?os=macos&platform=android).
@@ -9,7 +13,7 @@ This is Telus Digital's recommended template to use when starting a new React Na
 
 ## Included Features
 
-- originally based on Expo's [Blank (Typescript) template](https://github.com/expo/expo/tree/main/templates/expo-template-blank-typescript)
+- based on Expo's [Default template](https://github.com/expo/expo/tree/main/templates/expo-template-default) but additionally includes several additions & customizations
 - includes [ESLint](https://eslint.org) + [Prettier](https://prettier.io)
 - includes [VSCode](https://code.visualstudio.com) / [Cursor](https://www.cursor.com) extensions
 - includes [Jest](https://jestjs.io) + [React Native Testing Library](https://testing-library.com/docs/react-native-testing-library/intro/) for unit testing
@@ -22,14 +26,33 @@ This is Telus Digital's recommended template to use when starting a new React Na
 >
 > Please note that it is not compatible with Expo Go.
 
-## How to create a project using this template
+## Instructions For Organizations
 
-Click here to [create a new GitHub Repository](https://github.com/new?template_name=react-native-template&template_owner=willowtreeapps) using this template
+### 🍴 [Fork This Template](https://github.com/jpdriver/react-native-template/fork)
+
+We highly encourage forking this repository to your own GitHub org so you can add organization-specific information to it. This allows your teams to get started as quickly as possible.
+
+For example you could add the following to your forked repo:
+
+```js
+// in app.config.js
+
+ios: {
+  bundleIdentifier: "com.jpmigueldriver.myapp",
+  appleTeamId: "7UMFPW78PV", // <-- add your Team ID
+}
+```
+
+(see [Apple Team ID docs](https://docs.expo.dev/versions/latest/config/app/#appleteamid))
+
+This will ensure that any new apps made with your fork of the template are pre-configured to use your organization's Apple Team ID, and allows for easy development and testing on physical devices.
+
+Another recommended modification is adding the `owner` field in `app.json` so any created apps will be pre-configured to work with your organization's EAS account.
 
 ## Once you have created a project
 
 > [!WARNING]
-> Make sure you are using Node >18 <23
+> Make sure you are using Node >=20.19.4 <23
 
 - delete either `package-lock.json` or `yarn.lock` (see [Package Managers](#package-managers) below)
 - find & replace `my-app` with your app name
@@ -143,23 +166,8 @@ This project uses Bundler to manage Ruby Gems such as CocoaPods. You should not 
 
 ### Adding Navigation
 
-You have several options for adding navigation to your app:
-
-- [React Navigation](https://reactnavigation.org)
-- [Expo Router](https://expo.dev/router)
-
-### Add Apple Team ID
-
-- You should add the following to your `app.config.js`
-  - see [Apple Team ID docs](https://docs.expo.dev/versions/latest/config/app/#appleteamid)
-  - see here for a [list of WillowTree's internal Apple Teams](https://willowtree.atlassian.net/wiki/spaces/PD/pages/3056861513/WillowTree-Owned+Developer+Accounts) you may wish to use
-
-```js
-ios: {
-  bundleIdentifier: "com.jpmigueldriver.myapp",
-  appleTeamId: "7UMFPW78PV", // <-- add your Team ID
-}
-```
+- [Expo Router](https://expo.dev/router) is the preferred option for adding navigation to new apps.
+- However if you prefer to work with fewer dependencies or have other specific needs, another option is [React Navigation](https://reactnavigation.org).
 
 ### Configure EAS
 
@@ -168,5 +176,5 @@ ios: {
 
 ## Notes
 
+- This template is only intended for use with iOS and Android apps.
 - `react-native-web` support has been removed
-  - see [this link](https://willowtree.atlassian.net/wiki/spaces/SD/pages/2732916827/React+Native+Web) for more

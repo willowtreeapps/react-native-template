@@ -1,6 +1,6 @@
-import {getLoadedFonts} from 'expo-font';
-import {FlatList, StyleSheet} from 'react-native';
-import {ThemeText} from '../ThemeText';
+import { getLoadedFonts } from 'expo-font';
+import { FlatList, StyleSheet } from 'react-native';
+import { ThemeText } from '../ThemeText';
 
 export function FontList() {
   const uniqueFonts = [...new Set(getLoadedFonts())].sort();
@@ -10,14 +10,15 @@ export function FontList() {
       contentContainerStyle={styles.contentContainer}
       data={uniqueFonts}
       keyExtractor={item => item}
-      renderItem={({item}) => (
+      renderItem={({ item }) => (
         <ThemeText
           style={[
             styles.text,
             {
               fontFamily: item,
             },
-          ]}>
+          ]}
+        >
           {item}
         </ThemeText>
       )}

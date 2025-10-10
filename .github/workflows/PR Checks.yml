@@ -7,12 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🏗 Setup repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 🏗 Setup Node
-        uses: actions/setup-node@v4
-        with:
-          cache: npm
+        uses: actions/setup-node@v5
 
       - name: 📦 Install dependencies
         run: npm install
@@ -21,7 +19,7 @@ jobs:
         run: npm run lint
 
       - name: 🧼 Format
-        run: npm run format
+        run: npx prettier --check .
 
       - name: 🧪 Test
         run: npm run test

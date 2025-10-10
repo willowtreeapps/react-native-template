@@ -1,12 +1,12 @@
-import {FlatList, StyleSheet} from 'react-native';
-import {typography} from '../../theme/typography';
-import {ThemeText} from '../ThemeText';
+import { FlatList, StyleSheet } from 'react-native';
+import { typography } from '../../theme/typography';
+import { ThemeText } from '../ThemeText';
 
 interface Props {
   text?: string;
 }
 
-export function TypographyList({text}: Props) {
+export function TypographyList({ text }: Props) {
   const typeStyles = Object.entries(typography);
 
   return (
@@ -14,7 +14,7 @@ export function TypographyList({text}: Props) {
       contentContainerStyle={styles.contentContainer}
       data={typeStyles}
       keyExtractor={([styleName]) => styleName}
-      renderItem={({item}) => {
+      renderItem={({ item }) => {
         const [styleName, styleValue] = item;
         return <ThemeText style={styleValue}>{text || styleName}</ThemeText>;
       }}

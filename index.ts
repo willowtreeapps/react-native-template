@@ -1,8 +1,8 @@
-import {registerRootComponent} from 'expo';
-import {LogBox} from 'react-native';
+import { registerRootComponent } from 'expo';
+import { LogBox } from 'react-native';
 
 import App from './src/App';
-import {isTest} from './src/utils/isTest';
+import { isTest } from './src/utils/isTest';
 
 if (isTest) {
   // LogBox can interfere with Maestro tests so we disable it

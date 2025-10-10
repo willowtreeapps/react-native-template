@@ -5,7 +5,7 @@ import {
   TextProps,
   TextStyle,
 } from 'react-native';
-import {useTheme} from '../hooks/useTheme';
+import { useTheme } from '../hooks/useTheme';
 
 type FontStyle = TextStyle['fontStyle'];
 

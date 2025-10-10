@@ -1,7 +1,7 @@
-import {FlatList, StyleSheet, View} from 'react-native';
-import {Colors} from '../../theme/types';
-import {ThemeText} from '../ThemeText';
-import {useTheme} from '../../hooks/useTheme';
+import { FlatList, StyleSheet, View } from 'react-native';
+import { useTheme } from '../../hooks/useTheme';
+import { Colors } from '../../theme/types';
+import { ThemeText } from '../ThemeText';
 
 export function ColorList() {
   const theme = useTheme();
@@ -13,14 +13,14 @@ export function ColorList() {
       data={colors}
       keyExtractor={([colorName]) => colorName}
       numColumns={3}
-      renderItem={({item}) => {
+      renderItem={({ item }) => {
         const [colorName, hexCode] = item;
         return (
           <View style={styles.swatchContainer}>
             <View
               style={[
                 styles.swatch,
-                {backgroundColor: hexCode, borderColor: theme.textColor},
+                { backgroundColor: hexCode, borderColor: theme.textColor },
               ]}
             />
             <ThemeText>{colorName}</ThemeText>

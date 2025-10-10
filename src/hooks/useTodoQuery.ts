@@ -1,4 +1,4 @@
-import {useQuery, UseQueryResult} from '@tanstack/react-query';
+import { useQuery, UseQueryResult } from '@tanstack/react-query';
 
 type Todos = string[];
 
@@ -8,7 +8,7 @@ type TodoQueryResult = Pick<UseQueryResult<Todos>, 'data' | 'isLoading'>;
 
 // sample data fetching query
 export function useTodoQuery(): TodoQueryResult {
-  const {data, isLoading} = useQuery<Todos>({
+  const { data, isLoading } = useQuery<Todos>({
     queryKey: ['todos'],
     queryFn: () => {
       // fake a slow network request

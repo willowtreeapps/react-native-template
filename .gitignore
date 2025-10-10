@@ -36,13 +36,22 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
+# generated native folders
+/ios
+/android
+
 # Ruby / CocoaPods
 /vendor/bundle/
-
-# native apps
-/android/
-/ios/
 
 # modules
 /modules/*/android/build
 /modules/*/plugin/build
+
+# Corepack
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

@@ -1,4 +1,4 @@
-module.exports = ({config}) => {
+module.exports = ({ config }) => {
   const withStorybook = process.env.WITH_STORYBOOK;
   const enableProxyman = process.env.ENABLE_PROXYMAN === 'true';
 

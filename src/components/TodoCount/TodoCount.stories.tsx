@@ -1,6 +1,6 @@
-import {StyleSheet, View} from 'react-native';
-import type {Meta, StoryObj} from '@storybook/react';
-import {TodoCount} from './TodoCount';
+import type { Meta, StoryObj } from '@storybook/react';
+import { StyleSheet, View } from 'react-native';
+import { TodoCount } from './TodoCount';
 
 const meta = {
   title: 'TodoCount',

@@ -1,4 +1,4 @@
-import {Colors, Theme} from './types';
+import { Colors, Theme } from './types';
 
 export const theme: Record<'light' | 'dark', Theme> = {
   light: {

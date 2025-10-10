@@ -1,7 +1,8 @@
-import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Constants from 'expo-constants';
-import {useReactQuery} from './hooks/useReactQuery';
-import {HomeScreen} from './screens/HomeScreen';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { useReactQuery } from './hooks/useReactQuery';
+import { HomeScreen } from './screens/HomeScreen';
 
 let AppEntryPoint = HomeScreen;
 
@@ -15,8 +16,10 @@ export default () => {
   useReactQuery(queryClient);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <AppEntryPoint />
-    </QueryClientProvider>
+    <GestureHandlerRootView>
+      <QueryClientProvider client={queryClient}>
+        <AppEntryPoint />
+      </QueryClientProvider>
+    </GestureHandlerRootView>
   );
 };

@@ -1,4 +1,4 @@
-import {LaunchArguments} from 'react-native-launch-arguments';
+import { LaunchArguments } from 'react-native-launch-arguments';
 
 export const isE2ETest = () => {
   try {

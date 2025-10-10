@@ -1,8 +1,12 @@
-import {useReactQueryDevTools} from '@dev-plugins/react-query';
-import {QueryClient, focusManager, onlineManager} from '@tanstack/react-query';
+import { useReactQueryDevTools } from '@dev-plugins/react-query';
+import {
+  QueryClient,
+  focusManager,
+  onlineManager,
+} from '@tanstack/react-query';
 import * as Network from 'expo-network';
-import {useEffect} from 'react';
-import {AppState, AppStateStatus, Platform} from 'react-native';
+import { useEffect } from 'react';
+import { AppState, AppStateStatus, Platform } from 'react-native';
 
 // refetch any stale queries when back online
 onlineManager.setEventListener(setOnline => {
