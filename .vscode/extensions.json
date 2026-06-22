@@ -1,20 +1,22 @@
 {
   "recommendations": [
-    "cssho.vscode-svgviewer",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "mgmcdermott.vscode-language-babel",
     "naumovs.color-highlight",
-    "vsmobile.vscode-react-native",
+    "msjsdiag.vscode-react-native",
     "waderyan.gitblame",
     "wayou.vscode-todo-highlight",
     "wmaurer.change-case",
     "davidanson.vscode-markdownlint",
     "jasonnutter.search-node-modules",
     "yzhang.markdown-all-in-one",
-    "mathiasfrohlich.Kotlin",
+    "mathiasfrohlich.kotlin",
     "pnp.polacode",
     "ms-vsliveshare.vsliveshare",
-    "expo.vscode-expo-tools"
+    "expo.vscode-expo-tools",
+    "swiftlang.swift-vscode",
+    "redhat.vscode-yaml",
+    "github.vscode-github-actions"
   ]
 }

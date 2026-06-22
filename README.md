@@ -16,10 +16,13 @@ It is designed to enforce a consistent developer experience for React Native tea
 - based on Expo's [Default template](https://github.com/expo/expo/tree/main/templates/expo-template-default) but additionally includes several additions & customizations
 - includes [ESLint](https://eslint.org) + [Prettier](https://prettier.io)
 - includes [VSCode](https://code.visualstudio.com) / [Cursor](https://www.cursor.com) extensions
+- includes [Expo Skills](https://expo.dev/expo-skills) and [Expo MCP](https://docs.expo.dev/mcp/)
 - includes [Jest](https://jestjs.io) + [React Native Testing Library](https://testing-library.com/docs/react-native-testing-library/intro/) for unit testing
 - includes [Maestro](https://maestro.mobile.dev) for E2E testing
 - includes [Storybook](https://storybook.js.org) for component development
 - includes GitHub Action for PR Checks
+
+The template is pre-configured for use with [Claude Code](https://claude.com/product/claude-code), [Codex](https://claude.com/product/claude-code). Other agents should work too, but may require additional setup.
 
 > [!NOTE]
 > This template is set up to use [Continuous Native Generation](https://docs.expo.dev/workflow/continuous-native-generation/).
@@ -34,12 +37,16 @@ We highly encourage forking this repository to your own GitHub org so you can ad
 
 For example you could add the following to your forked repo:
 
-```js
-// in app.config.js
+```json
+// in app.json
 
-ios: {
-  bundleIdentifier: "com.jpmigueldriver.myapp",
-  appleTeamId: "7UMFPW78PV", // <-- add your Team ID
+{
+  "expo": {
+    "ios": {
+      "bundleIdentifier": "com.jpmigueldriver.myapp",
+      "appleTeamId": "YOUR_TEAM_ID"
+    }
+  }
 }
 ```
 
@@ -52,7 +59,7 @@ Another recommended modification is adding the `owner` field in `app.json` so an
 ## Once you have created a project
 
 > [!WARNING]
-> Make sure you are using Node >=20.19.4 <23
+> Make sure you are using Node >=22.22.1
 
 - delete either `package-lock.json` or `yarn.lock` (see [Package Managers](#package-managers) below)
 - find & replace `my-app` with your app name
@@ -91,9 +98,9 @@ rm -rf package-lock.json
 
 ### Ruby
 
-This project is intended for use with the version of Ruby that ships with macOS. You should not need to install Ruby separately (e.g. via Homebrew).
+This project expects Ruby `3.2.0` or newer, with `.ruby-version` currently pinned to `3.2.10`.
 
-However if you would like to use a different version of Ruby, we recommend using [rvm](https://rvm.io/) to manage your Ruby versions.
+If your system Ruby does not meet this, use a version manager such as [rbenv](https://github.com/rbenv/rbenv) or [rvm](https://rvm.io/).
 
 You may need to update the `.ruby-version` and `Gemfile.lock` files to match the version of Ruby you are using.
 
@@ -102,42 +109,6 @@ You may need to update the `.ruby-version` and `Gemfile.lock` files to match the
 This project uses Bundler to manage Ruby Gems such as CocoaPods. You should not need to install CocoaPods separately (e.g. via Homebrew).
 
 ## (Optional) Steps for further customization
-
-- Adding additional ESLint rules
-
-  - [import/no-default-export](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-default-export.md)
-
-    - can be desirable to simplify refactoring
-
-      ```sh
-      npm install eslint-plugin-import --save-dev
-      ```
-
-      ```js
-      // in eslintrc.js
-
-      rules: {
-        // ...other rules...
-        "import/no-default-export": "error", // <-- add the rule
-      }
-      ```
-
-  - [unused-imports/no-unused-imports](https://github.com/sweepline/eslint-plugin-unused-imports)
-
-    - can automatically remove unused imports
-
-      ```sh
-      npm install eslint-plugin-unused-imports --save-dev
-      ```
-
-      ```js
-      // in eslintrc.js
-
-      rules: {
-        // ...other rules...
-        "unused-imports/no-unused-imports": "warn", // <-- add the rule
-      }
-      ```
 
 - Customizing Jest
 
@@ -160,14 +131,7 @@ This project uses Bundler to manage Ruby Gems such as CocoaPods. You should not 
   - if you are using EAS Update you can use the following GitHub Action to show a QR code to scan for iOS and Android
     - [EAS Update GitHub Actions](https://docs.expo.dev/eas-update/github-actions/)
 
-- Add [Husky](https://typicode.github.io/husky/get-started.html) for pre-commit hooks
-
 ## Next steps
-
-### Adding Navigation
-
-- [Expo Router](https://expo.dev/router) is the preferred option for adding navigation to new apps.
-- However if you prefer to work with fewer dependencies or have other specific needs, another option is [React Navigation](https://reactnavigation.org).
 
 ### Configure EAS
 

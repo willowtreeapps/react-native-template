@@ -1,0 +1,3 @@
+# How We Test
+
+This project defines a mobile testing pyramid with the largest share in Jest unit tests, a smaller middle layer of React Native Testing Library component and screen-level tests, and the smallest layer in Maestro end-to-end coverage. We made this decision to keep fast feedback on every pull request by requiring unit and integration-style component tests, while reserving end-to-end execution for production release readiness on both iOS and Android. This project does not enforce coverage percentages, flake policies, timing budgets, mock-server infrastructure, mandatory must-never-break journeys, or strict exception rules, so downstream projects can add stricter quality gates based on product risk.
