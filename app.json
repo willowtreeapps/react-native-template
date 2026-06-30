@@ -2,6 +2,7 @@
   "expo": {
     "name": "My App",
     "slug": "my-app",
+    "owner": "willowtreeapps",
     "version": "1.0.0",
     "platforms": ["ios", "android"],
     "icon": "./assets/images/icon.png",
@@ -10,6 +11,7 @@
     "ios": {
       "icon": "./assets/images/expo.icon",
       "supportsTablet": true,
+      "appleTeamId": "7UMFPW78PV",
       "bundleIdentifier": "com.jpmigueldriver.myapp",
       "config": {
         "usesNonExemptEncryption": false
