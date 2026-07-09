@@ -1,5 +1,15 @@
+.agents
+.claude
 .expo
+.maestro
+.mcp.json
+.rnstorybook/*
+!.rnstorybook/stories
 android
+assets
+expo-env.d.ts
 ios
+modules/*/android/build
+modules/*/plugin/build
 node_modules
 vendor

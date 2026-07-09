@@ -3,15 +3,28 @@ set -e  # Exit on error
 
 # Parse command line arguments
 PLATFORM=""
-if [[ $# -eq 2 && "$1" == "--platform" ]]; then
-  PLATFORM="$2"
-elif [[ $# -eq 0 ]]; then
-  # No arguments - build all platforms
-  PLATFORM=""
-else
-  echo "Usage: $0 [--platform android|ios]"
-  exit 1
-fi
+CLEAN=false
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --platform)
+      if [[ -z "$2" ]]; then
+        echo "Usage: $0 [--platform android|ios] [--clean]"
+        exit 1
+      fi
+      PLATFORM="$2"
+      shift 2
+      ;;
+    --clean)
+      CLEAN=true
+      shift
+      ;;
+    *)
+      echo "Usage: $0 [--platform android|ios] [--clean]"
+      exit 1
+      ;;
+  esac
+done
 
 # Validate platform parameter if provided
 if [[ -n "$PLATFORM" && "$PLATFORM" != "android" && "$PLATFORM" != "ios" ]]; then
@@ -47,8 +60,10 @@ if [[ -n "$PLATFORM" ]]; then
   PLATFORMS=("$PLATFORM")
 fi
 
-# Clean native projects
-rm -rf android ios
+# Clean native projects only when explicitly requested
+if [[ "$CLEAN" == true ]]; then
+  rm -rf android ios
+fi
 
 # Compile Expo modules
 ./scripts/compile-plugins.sh

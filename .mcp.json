@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "Expo": {
+      "type": "http",
+      "url": "https://mcp.expo.dev/mcp"
+    },
+		"Figma": {
+			"type": "http",
+			"url": "https://mcp.figma.com/mcp"
+		},
+    "Github": {
+			"type": "http",
+			"url": "https://api.githubcopilot.com/mcp/"
+		}
+  }
+}

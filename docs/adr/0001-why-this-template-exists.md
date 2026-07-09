@@ -1,0 +1,3 @@
+# Why This Template Exists
+
+This project was created to deliver Day One production readiness, which none of the upstream starting points provided by themselves. We deliberately combined Expo blank-typescript as the base, selected structural conventions from Expo default, and native hardening patterns from the React Native Community template, then added opinionated defaults for data handling, CI quality gates, bootstrap reliability, and documentation guardrails. We made this decision to reduce early project risk and decision fatigue while keeping a maintainable, explicit foundation for teams and coding agents.

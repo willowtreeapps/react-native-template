@@ -1,0 +1,3 @@
+# Why We Don't Use GitHub Actions To Build
+
+This project includes lightweight GitHub Actions for fast pull-request checks, but it intentionally does not use GitHub Actions to build mobile artifacts. We made this decision because apps built from this project are strongly recommended to use EAS for build and release workflows, and projects commonly connect GitHub Actions to trigger EAS Workflows rather than building binaries on GitHub runners. This keeps CI feedback quick and portable at repository level while leaving organization-specific EAS workflow and deployment setup outside the project scope.

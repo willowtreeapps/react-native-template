@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e  # Exit on error
 
-# Check tool versions
-./scripts/check-tool-versions.sh
-
 # Clean project
 ./scripts/clean.sh
 

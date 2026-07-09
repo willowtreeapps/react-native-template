@@ -1,0 +1,8 @@
+[mcp_servers.Expo]
+url = "https://mcp.expo.dev/mcp"
+
+[mcp_servers.Figma]
+url = "https://mcp.figma.com/mcp"
+
+[mcp_servers.Github]
+url = "https://api.githubcopilot.com/mcp/"

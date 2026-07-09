@@ -1,14 +1,20 @@
 #!/bin/bash
 set -e  # Exit on error
 
-# Derive required Ruby version from Gemfile `ruby` directive (always present per project convention).
-# Supported simple forms:
-#   ruby ">= 2.6.10"
-#   ruby "3.4.5"
-# We capture the quoted value then strip any leading comparison operator and whitespace.
-REQUIRED_RUBY_VERSION="$(grep -E '^[[:space:]]*ruby[[:space:]]+"' Gemfile | head -1 | sed -E 's/.*ruby[[:space:]]+"([^"]+)".*/\1/' | sed -E 's/^>=?[[:space:]]*//')"
-REQUIRED_XCODE_VERSION="16.1"
-REQUIRED_NODE_VERSION="20.19.4"
+# Run version checks only on macOS.
+# This script is invoked from npm preinstall and should not fail Linux CI runners.
+if [ "$(uname -s)" != "Darwin" ]; then
+	echo "Skipping tool version checks on non-macOS: $(uname -s)"
+	exit 0
+fi
+
+# Derive required Ruby version from .ruby-version (project source of truth).
+# Supported forms:
+#   3.4.5
+#   ruby-3.4.5
+REQUIRED_RUBY_VERSION="$(head -1 .ruby-version | tr -d '[:space:]' | sed -E 's/^ruby-//')"
+REQUIRED_XCODE_VERSION="26.4"
+REQUIRED_NODE_VERSION="22.22.1"
 
 # Compare semantic versions (major.minor.patch) numerically.
 version_ge() {
@@ -36,12 +42,11 @@ CURRENT_RUBY_VERSION="$(echo "${RUBY_RAW}" | awk '{print $2}' | sed 's/p.*//')"
 if ! version_ge "${CURRENT_RUBY_VERSION}" "${REQUIRED_RUBY_VERSION}"; then
 	echo "💥 Ruby version too low: current ${CURRENT_RUBY_VERSION}, required >= ${REQUIRED_RUBY_VERSION}"
 	echo ""
-	echo "Update using"
-	echo "  brew install ruby"
+	echo "You should use a Ruby Version manager such as rbenv or RVM:"
+	echo "  brew install rbenv"
 	echo ""
-	echo "Then add to your shell profile (e.g. ~/.zprofile or ~/.zshrc):"
-	echo "  echo 'export PATH=\"/opt/homebrew/opt/ruby/bin:\$PATH\"' >> ~/.zprofile"
-	echo "  source ~/.zprofile"
+	echo "Then run:"
+	echo "  rbenv init"
 	exit 1
 fi
 

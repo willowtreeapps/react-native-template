@@ -1,13 +1,19 @@
 // Learn more https://docs.expo.io/guides/customizing-metro
-const path = require('path');
+const { withStorybook } = require('@storybook/react-native/withStorybook');
+
 const { getDefaultConfig } = require('expo/metro-config');
-const withStorybook = require('@storybook/react-native/metro/withStorybook');
 
 /** @type {import('expo/metro-config').MetroConfig} */
 const config = getDefaultConfig(__dirname);
 
-module.exports = withStorybook(config, {
-  enabled: process.env.WITH_STORYBOOK === 'true',
-  configPath: path.resolve(__dirname, './.rnstorybook'),
-  onDisabledRemoveStorybook: true,
-});
+// handle SVG files
+config.transformer = {
+  ...config.transformer,
+  babelTransformerPath: require.resolve('react-native-svg-transformer'),
+};
+config.resolver.assetExts = config.resolver.assetExts.filter(
+  ext => ext !== 'svg',
+);
+config.resolver.sourceExts.push('svg');
+
+module.exports = withStorybook(config);

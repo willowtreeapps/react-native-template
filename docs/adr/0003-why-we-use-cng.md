@@ -1,0 +1,3 @@
+# Why We Use CNG
+
+This project uses Expo Continuous Native Generation, includes `expo-dev-client`, and does not support Expo Go, so the `ios` and `android` folders are treated as generated outputs that stay out of source control and are not edited directly. We made this decision so native changes flow through Expo config, plugins, and other prebuild inputs instead of drifting through manual native edits, and so developers can regenerate a correct native project state at any time by rerunning `./scripts/init.sh` or `./scripts/prebuild.sh`. For iOS, installation is standardized through `./scripts/prebuild.sh` so CocoaPods runs via Bundler and respects the project-local gem versions the app requires.

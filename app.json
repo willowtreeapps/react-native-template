@@ -5,12 +5,11 @@
     "owner": "willowtreeapps",
     "version": "1.0.0",
     "platforms": ["ios", "android"],
-    "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
     "ios": {
+      "icon": "./assets/images/expo.icon",
       "supportsTablet": true,
       "appleTeamId": "7UMFPW78PV",
       "bundleIdentifier": "com.jpmigueldriver.myapp",
@@ -25,12 +24,21 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
       "package": "com.jpmigueldriver.myapp"
     },
     "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 33
+          }
+        }
+      ],
       "expo-font",
+      "expo-image",
+      "expo-router",
       [
         "expo-splash-screen",
         {
@@ -43,6 +51,8 @@
           }
         }
       ],
+      "expo-status-bar",
+      "expo-web-browser",
       "react-native-legal/app.plugin.js"
     ],
     "experiments": {

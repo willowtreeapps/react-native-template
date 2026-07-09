@@ -10,9 +10,23 @@ import { AppState, AppStateStatus, Platform } from 'react-native';
 
 // refetch any stale queries when back online
 onlineManager.setEventListener(setOnline => {
+  let initialised = false;
+
   const eventSubscription = Network.addNetworkStateListener(state => {
+    initialised = true;
     setOnline(!!state.isConnected);
   });
+
+  Network.getNetworkStateAsync()
+    .then(state => {
+      if (!initialised) {
+        setOnline(!!state.isConnected);
+      }
+    })
+    .catch(() => {
+      // getNetworkStateAsync can reject on some platforms/SDK versions
+    });
+
   return eventSubscription.remove;
 });
 

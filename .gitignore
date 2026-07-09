@@ -43,6 +43,10 @@ yarn-error.*
 # Ruby / CocoaPods
 /vendor/bundle/
 
+# Storybook
+*storybook.log
+storybook-static
+
 # modules
 /modules/*/android/build
 /modules/*/plugin/build

@@ -1,0 +1,3 @@
+# Why We Don't Support Web
+
+This project explicitly does not support web and targets only iOS and Android, even though Expo templates can include web-oriented dependencies. We made this decision because `react-native-web` has not been the strongest default fit for most teams building from this project, while newer universal app work increasingly prefers React Strict DOM, and historically teams shipping from this project have overwhelmingly targeted native mobile only. This keeps the project aligned with real delivery demand in the market, reduces cross-platform complexity, and preserves focus on high-quality native mobile outcomes.
