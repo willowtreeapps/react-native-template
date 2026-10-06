@@ -63,7 +63,7 @@ Another recommended modification is adding the `owner` field in `app.json` so an
 
 - delete either `package-lock.json` or `yarn.lock` (see [Package Managers](#package-managers) below)
 - find & replace `my-app` with your app name
-- find & replace `com.jpmigueldriver.myapp` with your app id
+- find & replace `com.willowtreeapps.myapp` with your app id
 - run `./scripts/init.sh` to install the dependencies
 - run `npm run ios` or `npm run android` to start the app
 - run `npm start:storybook` to start the storybook UI
