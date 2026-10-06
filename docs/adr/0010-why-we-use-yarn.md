@@ -1,0 +1,3 @@
+# Why We Use Yarn
+
+This project standardizes on Yarn v1 with a single `yarn.lock`, pinned through the `packageManager` field and enabled via Corepack, instead of shipping lock files for both npm and Yarn. We made this decision because upstream (`jpdriver/react-native-template`) dropped `package-lock.json` in its React Native 0.86 update and its dependency upgrade tooling only regenerates one lock file, so maintaining a second lock file would drift on every upstream merge. A single tested lock file keeps installs reproducible and CI, Husky hooks, and agent instructions consistent; projects can still opt into npm using the steps in the README.

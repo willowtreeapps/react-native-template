@@ -80,4 +80,4 @@ After each requested change:
 
 - Cloud agents should run JavaScript-side tasks only.
 - Supported in cloud: linting, formatting, unit tests, and TypeScript checks.
-- Not supported in cloud: native/device-dependent workflows (for example `npm run ios`, `npm run android`, and E2E runs that require a simulator/device).
+- Not supported in cloud: native/device-dependent workflows (for example `yarn ios`, `yarn android`, and E2E runs that require a simulator/device).

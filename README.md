@@ -61,12 +61,11 @@ Another recommended modification is adding the `owner` field in `app.json` so an
 > [!WARNING]
 > Make sure you are using Node >=22.22.1
 
-- delete either `package-lock.json` or `yarn.lock` (see [Package Managers](#package-managers) below)
 - find & replace `my-app` with your app name
 - find & replace `com.willowtreeapps.myapp` with your app id
 - run `./scripts/init.sh` to install the dependencies
-- run `npm run ios` or `npm run android` to start the app
-- run `npm start:storybook` to start the storybook UI
+- run `yarn ios` or `yarn android` to start the app
+- run `yarn start:storybook` to start the storybook UI
 
 ### License
 
@@ -77,24 +76,26 @@ If your project is not open-source, you should:
 2. remove the `"license"` field from `package.json`
 3. add `"private": true` to `package.json`
 
-### Package Managers
+### Package Manager
 
-> [!IMPORTANT]
-> To ensure tested + compatible versions of dependencies are installed, this template includes lock files for both NPM and Yarn.
+This template uses Yarn (v1) and ships a single `yarn.lock` with tested, compatible dependency versions. The exact version is pinned via the `packageManager` field in `package.json`, and `./scripts/init.sh` enables it through [Corepack](https://nodejs.org/api/corepack.html), so there is no need to install Yarn globally.
+
+```sh
+# if `yarn` is not on your PATH
+corepack enable yarn
+```
+
+> [!NOTE]
+> You can still switch your project to npm if you prefer. Without `yarn.lock`, npm resolves fresh versions within the ranges in `package.json`, so you lose the tested lock file. Some current peer dependency ranges also require `legacy-peer-deps`.
 >
-> As one of the first things you do, you should pick which package manager you want to use.
-
-```sh
-# if you want to use NPM
-rm -rf yarn.lock
-./scripts/init.sh
-```
-
-```sh
-# if you want to use Yarn
-rm -rf package-lock.json
-./scripts/init.sh
-```
+> ```sh
+> rm yarn.lock
+> echo "legacy-peer-deps=true" > .npmrc
+> corepack use npm   # updates `packageManager` and generates package-lock.json
+> ./scripts/init.sh
+> ```
+>
+> Then replace `yarn` commands with their npm equivalents in `.husky/pre-commit` and `.github/workflows/PR Checks.yml` (`cache: npm`, `cache-dependency-path: package-lock.json`, `npm install`, `npm run …`, `npx …`).
 
 ### Ruby
 
