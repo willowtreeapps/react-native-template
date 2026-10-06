@@ -2,7 +2,7 @@
 
 ## Canonical References
 
-- Expo docs: read exact versioned docs at <https://docs.expo.dev/versions/v56.0.0/> before writing Expo code.
+- Expo docs: read exact versioned docs at <https://docs.expo.dev/versions/v57.0.0/> before writing Expo code.
 - Testing docs: this project uses `@testing-library/react-native`.
   - Before writing or changing RNTL tests, read local docs in `node_modules/@testing-library/react-native/docs/`, starting with `node_modules/@testing-library/react-native/docs/guides/llm-guidelines.md`.
 

@@ -98,7 +98,7 @@ rm -rf package-lock.json
 
 ### Ruby
 
-This project expects Ruby `3.2.0` or newer, with `.ruby-version` currently pinned to `3.2.10`.
+This project expects Ruby `3.2.0` or newer, with `.ruby-version` currently pinned to `3.2.11`.
 
 If your system Ruby does not meet this, use a version manager such as [rbenv](https://github.com/rbenv/rbenv) or [rvm](https://rvm.io/).
 
@@ -127,7 +127,6 @@ This project uses Bundler to manage Ruby Gems such as CocoaPods. You should not 
     ```
 
 - Add more GitHub workflows
-
   - if you are using EAS Update you can use the following GitHub Action to show a QR code to scan for iOS and Android
     - [EAS Update GitHub Actions](https://docs.expo.dev/eas-update/github-actions/)
 

@@ -12,26 +12,26 @@ jobs:
       - name: 🏗 Setup Node
         uses: actions/setup-node@v6
         with:
-          cache: npm
-          cache-dependency-path: package-lock.json
+          cache: yarn
+          cache-dependency-path: yarn.lock
 
       - name: 📦 Install dependencies
-        run: npm install
+        run: yarn install
 
       - name: 🔬 Lint
-        run: npm run lint
+        run: yarn lint
 
       - name: 🧼 Format
-        run: npx prettier . --check
+        run: yarn prettier . --check
 
       - name: 🧪 Test
-        run: npm run test
-
-      - name: 📝 Typescript
-        run: npx tsc --noEmit
+        run: yarn test
 
       - name: 🧱 Compile Expo Plugins
         run: ./scripts/compile-plugins.sh
 
+      - name: 📝 Typescript
+        run: yarn tsc --noEmit
+
       - name: 🍎 iOS Build
-        run: npx expo export -p ios
+        run: yarn expo export -p ios

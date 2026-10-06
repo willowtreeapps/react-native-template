@@ -58,6 +58,9 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "isStorybook": false
     }
   }
 }
