@@ -199,7 +199,7 @@ This template is MIT licensed. Most projects built from it aren't open source, s
 
 ## Next steps
 
-- **Set up EAS** to build, submit and update your app: see the [EAS documentation](https://docs.expo.dev/eas/). If you use EAS Update, the [EAS Update GitHub Action](https://docs.expo.dev/eas-update/github-actions/) can post QR codes on pull requests.
+- **Set up distribution.** The template doesn't prescribe a build and release pipeline: use [EAS](https://docs.expo.dev/eas/), Fastlane or your own CI, whichever fits your project. Whatever you choose, set `APP_VARIANT` to `development`, `preview` or `production` for every build (see [App variants](#app-variants)). A build without it gets the `.dev` app id and the "(Dev)" name. With EAS, set `env.APP_VARIANT` on each build profile in `eas.json`, as described in the [EAS app variants guide](https://docs.expo.dev/build-reference/variants/). With Fastlane, check how your lanes define schemes (`scheme` in [`build_app`](https://docs.fastlane.tools/actions/build_app/)) and Android build flavors. `APP_VARIANT` is applied when the native projects are generated, so run `./scripts/switch-variant.sh <variant>` before building, and add schemes or flavors through a config plugin rather than by editing `ios/` or `android/`. If you use EAS Update, the [EAS Update GitHub Action](https://docs.expo.dev/eas-update/github-actions/) can post QR codes on pull requests.
 - **Collect code coverage** by adding this to `jest.config.js`:
 
   ```js
