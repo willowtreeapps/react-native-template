@@ -25,7 +25,7 @@ The recommended starting point for new React Native apps at [TELUS Digital](http
 
 1. On GitHub, click **Use this template** to create a new repository, then clone it.
 2. Find & replace `my-app` / `My App` with your app's slug and display name.
-3. Find & replace `com.willowtreeapps.myapp` with your app id (in `app.json` and `.maestro/home.yml`).
+3. Find & replace `com.willowtreeapps.myapp` with your app id (in `app.json` and `.maestro/home.yml`). Maestro flows target the development variant, so keep the `.dev` suffix in `.maestro/` (see [App variants](#app-variants)).
 4. If your project is not open source, [update the license](#license).
 
 ### 3. Install and run
@@ -95,7 +95,7 @@ iOS signing uses TELUS Digital's Apple Team ID (`appleTeamId` in `app.json`), an
 ### Testing and component development
 
 - **Unit tests:** [Jest](https://jestjs.io) with [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) ([ADR 0009](docs/adr/0009-how-we-test.md)). Shared helpers are in `src/utils/TestUtils.tsx`.
-- **E2E tests:** [Maestro](https://maestro.mobile.dev) flows in `.maestro/`. Flows launch the app with an `isE2E` [launch argument](https://github.com/iamolegga/react-native-launch-arguments), which turns off LogBox.
+- **E2E tests:** [Maestro](https://maestro.mobile.dev) flows in `.maestro/`. They target the development variant (`.dev` app id) that `yarn ios` / `yarn android` install. Flows launch the app with an `isE2E` [launch argument](https://github.com/iamolegga/react-native-launch-arguments), which turns off LogBox.
 - **Storybook:** [Storybook for React Native](https://github.com/storybookjs/react-native) with stories in `.rnstorybook/stories/`. `yarn start:storybook` serves Storybook in place of the app inside your dev build.
 - **React Query DevTools:** in development, press `shift + m` in the Expo CLI to open the [`@dev-plugins/react-query`](https://github.com/expo/dev-plugins) inspector.
 
