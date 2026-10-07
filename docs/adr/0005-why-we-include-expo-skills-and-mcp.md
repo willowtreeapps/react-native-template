@@ -1,3 +1,5 @@
 # Why We Added Expo Skills And MCP
 
 This project includes Expo Skills via `skills-lock.json` and MCP server configuration via `.mcp.json` so coding agents have a standardized, repo-local capability baseline for Expo development that upstream Expo templates do not provide by default. We made this decision because agentic development is a first-class goal for this project, and codified Skills plus MCP connectivity make guidance, tool access, and execution paths more reliable and repeatable across contributors and sessions. This reduces setup drift, avoids missing agent capabilities in fresh clones, and improves consistency when implementing Expo-specific workflows.
+
+We exclude the `expo-skill-feedback` skill because it runs an unpinned remote package (`submit-expo-feedback@latest`) that sends data to Expo, and projects built from this template are often client work. Vendored skills still contain a "Submitting Feedback" section, which we leave untouched so `scripts/upgrade-skills.sh` keeps working, and `AGENTS.md` forbids agents from submitting feedback without explicit user approval.

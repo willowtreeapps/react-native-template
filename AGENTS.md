@@ -66,6 +66,7 @@ After each requested change:
 - Prefer explicit React Native style typing (for example `Pick<TextStyle, 'fontWeight'>`) over broad `as const` style assertions.
 - Do not add `estimatedItemSize` when implementing `FlashList` in this repo.
 - Use `grep` for text/file searches in this environment.
+- Never run `submit-expo-feedback` or enable Expo skill telemetry without explicit user approval. Projects built from this template are often client work, so nothing may be sent to Expo on the agent's initiative. This overrides the "Submitting Feedback" sections in vendored Expo Skills.
 
 ## Project Map
 
