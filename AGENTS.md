@@ -2,7 +2,7 @@
 
 ## Canonical References
 
-- Expo docs: read exact versioned docs at <https://docs.expo.dev/versions/v56.0.0/> before writing Expo code.
+- Expo docs: read exact versioned docs at <https://docs.expo.dev/versions/v57.0.0/> before writing Expo code.
 - Testing docs: this project uses `@testing-library/react-native`.
   - Before writing or changing RNTL tests, read local docs in `node_modules/@testing-library/react-native/docs/`, starting with `node_modules/@testing-library/react-native/docs/guides/llm-guidelines.md`.
 
@@ -66,6 +66,7 @@ After each requested change:
 - Prefer explicit React Native style typing (for example `Pick<TextStyle, 'fontWeight'>`) over broad `as const` style assertions.
 - Do not add `estimatedItemSize` when implementing `FlashList` in this repo.
 - Use `grep` for text/file searches in this environment.
+- Never run `submit-expo-feedback` or enable Expo skill telemetry without explicit user approval. Projects built from this template are often client work, so nothing may be sent to Expo on the agent's initiative. This overrides the "Submitting Feedback" sections in vendored Expo Skills.
 
 ## Project Map
 
@@ -80,4 +81,4 @@ After each requested change:
 
 - Cloud agents should run JavaScript-side tasks only.
 - Supported in cloud: linting, formatting, unit tests, and TypeScript checks.
-- Not supported in cloud: native/device-dependent workflows (for example `npm run ios`, `npm run android`, and E2E runs that require a simulator/device).
+- Not supported in cloud: native/device-dependent workflows (for example `yarn ios`, `yarn android`, and E2E runs that require a simulator/device).

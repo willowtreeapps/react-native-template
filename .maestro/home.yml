@@ -1,4 +1,4 @@
-appId: com.jpmigueldriver.myapp # This is an example app id. Replace it with your app id.
+appId: com.willowtreeapps.myapp.dev # Development variant, which `yarn ios` / `yarn android` install. Replace with your app id.
 ---
 - launchApp:
     arguments:

@@ -71,12 +71,12 @@ fi
 # Prebuild native projects
 # If android is among enabled platforms
 if [[ " ${PLATFORMS[*]} " =~ android ]]; then
-  npx expo prebuild --platform android
+  npx expo prebuild --platform android --no-clean
 fi
 
 # If iOS is among enabled platforms
 if [[ " ${PLATFORMS[*]} " =~ ios ]]; then
-  npx expo prebuild --platform ios --no-install
+  npx expo prebuild --platform ios --no-clean --no-install
   
   # Needed for Ruby v3
   export RUBY_TCP_NO_FAST_FALLBACK=1
